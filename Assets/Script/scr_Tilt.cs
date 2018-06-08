@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class scr_Tilt : MonoBehaviour {
 
-    private float startRotX;
-    private float startRotZ;
+    private Vector3 startingRotations;
     public float rotLimit = 40.0f;
     public float rotSpeed = 4.0f;
 
@@ -24,8 +23,7 @@ public class scr_Tilt : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //Get starting rotations to know limit later.
-        startRotX = transform.rotation.x;
-        startRotZ = transform.rotation.z;
+        startingRotations = transform.rotation.eulerAngles;
 
         //Vars for sensitivety
         lastAccelX = 0.0f;
@@ -46,9 +44,9 @@ public class scr_Tilt : MonoBehaviour {
 
        
         //Lerp to new rotation
-        transform.localRotation = new Quaternion(Mathf.Lerp(transform.localRotation.x, aimRotX, lerpTime), 0.0f,
+        transform.localRotation = new Quaternion(Mathf.Lerp(transform.localRotation.x, aimRotX, lerpTime) , 0.0f,
                  Mathf.Lerp(transform.localRotation.z, aimRotZ, lerpTime), 1.0f);
-
+        
 
         //See if the rotation changed
         if (accelChanged())

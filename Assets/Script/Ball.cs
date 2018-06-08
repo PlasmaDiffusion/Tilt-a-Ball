@@ -45,7 +45,7 @@ public class Ball : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //Die from the void
-        if (transform.position.y < -10.0f) SceneManager.LoadScene(0);
+        if (transform.position.y < -10.0f) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
         //Jump upon tapping the screen
         if ((Input.touchCount > 0 || Input.GetKey(KeyCode.Space)) && isColliding) rigidbody.AddForce(0.0f, 100.0f, 0.0f);

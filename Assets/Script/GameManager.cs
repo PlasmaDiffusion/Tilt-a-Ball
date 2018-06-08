@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
     {
         if (initialized) return;
 
-        Debug.Log("initializing clear flags");
+        //Debug.Log("initializing clear flags");
         //Initialize clear flags
         items = new bool[levelCount, 3];
         clears = new bool[levelCount];
