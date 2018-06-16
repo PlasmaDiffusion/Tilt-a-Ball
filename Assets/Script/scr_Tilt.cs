@@ -18,7 +18,7 @@ public class scr_Tilt : MonoBehaviour {
     private float lastAccelY;
 
 
-    private bool computerDebug = true;
+    private bool computerDebug = false;
 
     // Use this for initialization
     void Start () {
@@ -109,11 +109,11 @@ public class scr_Tilt : MonoBehaviour {
     }
 
     //Draw some debug stuff
-    void OnGUI()
+    /*void OnGUI()
     {
         GUI.Label(new Rect(130, 0, 120, 100), Input.acceleration.x.ToString());
         GUI.Label(new Rect(260, 0, 120, 100), Input.acceleration.y.ToString());
 
         GUI.Label(new Rect(460, 0, 120, 100), lerpTime.ToString());
-    }
+    }*/
 }

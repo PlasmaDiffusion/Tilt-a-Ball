@@ -29,14 +29,20 @@ public class GameManager : MonoBehaviour {
         timeClears = new bool[levelCount];
         bestTimes = new float[levelCount];
 
+        //Default best time
         for (int i = 0; i < levelCount; i++) bestTimes[i] = 15.0f;
+        bestTimes[0] = 10.0f;
+        bestTimes[2] = 17.0f;
+        bestTimes[4] = 18.0f;
 
         initialized = true;
     }
 
     // Use this for initialization
     void Start() {
-
+        //Make the game never sleep within levels because of the accelerometer
+        if (GameObject.Find("PlayerSphere"))Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        else Screen.sleepTimeout = SleepTimeout.SystemSetting;
     }
 
     public void Save()

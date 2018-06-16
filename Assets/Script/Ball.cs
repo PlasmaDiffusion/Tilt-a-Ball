@@ -39,7 +39,16 @@ public class Ball : MonoBehaviour {
         if (GameManager.items[GameManager.levelId, 1]) showCollectible(1);
         if (GameManager.items[GameManager.levelId, 2]) showCollectible(2);
 
+
+
         StartCoroutine(StartCountdown());
+    }
+
+    public void unPauseCountdown()
+    {
+       
+        StartCoroutine(StartCountdown(float.Parse(timeText.text)
+            ));
     }
 
     // Update is called once per frame
@@ -48,9 +57,9 @@ public class Ball : MonoBehaviour {
         if (transform.position.y < -10.0f) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         
         //Jump upon tapping the screen
-        if ((Input.touchCount > 0 || Input.GetKey(KeyCode.Space)) && isColliding) rigidbody.AddForce(0.0f, 100.0f, 0.0f);
+        if ((Input.touchCount > 0 || Input.GetKey(KeyCode.Space)) && isColliding) rigidbody.AddForce(0.0f, 200.0f, 0.0f);
         
-	}
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
